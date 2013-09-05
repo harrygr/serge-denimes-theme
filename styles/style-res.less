@@ -1,0 +1,137 @@
+﻿
+/* Media queries for mobile */
+.full-width-image{
+	width:100%;
+	height:auto;
+	clear:both;
+}
+
+#drop-nav{
+	display: none;
+}
+@media only screen 
+and (max-width:640px){
+	#drop-nav{
+		width:100%;
+		display: block;
+		margin-bottom: 25px;
+	}
+	#stickyMenu{
+		display: none;
+	}
+	div{
+		.border-box;
+	}
+	#wrapper, #stickyMenu, ul#menu-header-menu, .scopy, #page_content, #sidebar{
+		width:100%!important;
+	}
+	#page_content{
+		float: none;
+
+	}
+	body.woocommerce #container{
+		float:none!important;
+		width:100%!important;
+	}
+	.col2-set .col-1, .col2-set .col-2{
+		width:100%;
+		float:none;
+	}
+	.checkout .col-2 > div{
+		clear:both;
+	}
+	ul.products li.product{
+		width:43%!important;
+		margin: 0 9px 18px 9px;
+	}
+	ul.products li.last{
+		margin-right: 9px;
+	}
+	#page_content .entry > img, #page_content .entry > a > img, #page_content .entry > p > a > img{
+		width: 100%;
+		height:auto!important;
+	}
+	#sidebar{
+		float: none;
+		width:100%;
+	}
+	#home_link img{
+		width: 78%;
+		//min-width:440px;
+		height:auto;
+		margin-top: 32px;
+	}
+	#header{
+		background-image: none;
+	}
+	#header .searchform .s{
+		width:37px;
+		-webkit-transition: width .25s ease;
+		   -moz-transition: width .25s ease;
+		    -ms-transition: width .25s ease;
+		     -o-transition: width .25s ease;
+		        transition: width .25s ease;
+		&:focus{
+			width:130px;
+		}
+	}
+	.button{
+		margin-bottom:5px!important;
+	}
+	#home-buttons{
+		display: none;
+	}
+	#socmed1{
+		top:9px;
+		left:0;
+		text-align: left;
+	}
+	// Footer widgets
+	.footer-widget {
+		width: 100%;
+		margin-right: 0;
+		border-style:none none solid none!important;
+		padding-bottom:10px;
+	}
+
+	//store stuff
+
+	body.woocommerce #container{
+		width:100%;
+	}
+	.woocommerce-result-count{
+		width:100%;
+		clear:both;
+		margin:0 0 20px;
+
+	}
+	form.woocommerce-ordering{
+		top:30px;
+	}
+	ul.page-numbers li .page-numbers{
+		font-size: 80%;
+		height: 17px;
+		margin-right: 4px;
+		padding: 2px;
+		text-align: center;
+		width: 17px;
+	}
+	.woocommerce {
+		table.cart{
+			font-size: 80%;
+		}
+		.cart_totals, .shipping_calculator{
+			float:none;
+			width:100%;
+			h2{
+				text-align: left;
+			}
+		}
+	}
+	.image-grid .sub-image, .image-grid .sub-image img{
+		.full-width-image
+	}
+	.wpcf7 textarea{
+	width:98%;
+	}
+}

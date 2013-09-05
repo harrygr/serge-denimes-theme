@@ -1,0 +1,28 @@
+﻿@import url('http://fonts.googleapis.com/css?family=Lato');
+@import url('http://fonts.googleapis.com/css?family=Oswald');
+html .mceContentBody {
+	font-family: 'Lato', arial, serif;
+}
+p {
+	line-height: 20px;
+	text-align: justify;
+	font-size: 16px;
+}
+h1, h2, h3, h4 {
+	font-family: 'Oswald', arial, serif;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 18px;
+}
+h3 {
+	font-size: 16px;
+}
+h4 {
+	font-size: 14px;
+}
+a {
+	color: #2C4270;
+	text-decoration: none;
+}
