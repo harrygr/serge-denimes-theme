@@ -29,14 +29,14 @@ get_header('shop'); ?>
 		$get = $_GET;
     	unset($get['showall']);//since you don't want this anymore
     	$URI = strtok($URI, '?') . '?'. http_build_query($get);
-    	$showWhat = "Show 12 per page";
+    	$showWhat = "View 21 per page";
 		} 
 	else 
 		{
 		//$URI .= '?' . http_build_query(array('showall'=>1));
 		$URI = strtok($URI, '?');
 		$URI .= '?' . http_build_query(array_merge($_GET,array('showall'=>1)));
-		$showWhat="Show All";
+		$showWhat="View All";
 		}
 	?>
 		<div><a href="<?php echo $URI; ?>"><?php echo $showWhat; ?></a></div>

@@ -7,7 +7,7 @@ Template Name: Blog List
 <?php get_header(); ?>
 <div id="page_content">
 <!-- Snarf: using blog-list.php -->
-<p class="clear"><a class="button" href="<?php echo serge_get_posts_page('url'); ?>">Show Posts in Grid View</a></p>
+<p class="clear"><a href="<?php echo serge_get_posts_page('url'); ?>">Show Posts in Grid View</a></p>
 <?php
 $the_query = new WP_Query(); 
 $the_query->query( array('post_type' => 'post', 'paged' => $paged, 'posts_per_page' => get_option('posts_per_page')) );
@@ -37,7 +37,7 @@ $the_query->query( array('post_type' => 'post', 'paged' => $paged, 'posts_per_pa
 	<h4 class="center">Not Found</h4>
 	<p class="center">Sorry, but you are looking for something that isn&#39;t here.</p>
 	<?php endif; ?>
-	<p class="clear"><a class="button" href="<?php echo serge_get_posts_page('url'); ?>">Show Posts in Grid View</a></p>
+	<p class="clear"><a href="<?php echo serge_get_posts_page('url'); ?>">Show Posts in Grid View</a></p>
 </div> <!-- /#page_content -->
 <?php 
 if (function_exists("is_woocommerce")){

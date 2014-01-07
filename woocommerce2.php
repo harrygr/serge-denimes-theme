@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="page_content">
-<!-- Snarf: using woocommerce.php -->
+<!-- Snarf: using woocommerce2.php -->
 
 <?php woocommerce_content(); ?>
 </div> <!-- /#page_content -->

@@ -1,16 +1,13 @@
 <?php
-/*$functions_path = TEMPLATEPATH . '/functions/';
-//Theme Options
-require_once ($functions_path . 'theme-options.php');
-*/
 function pr($arr){
 	echo '<pre>';
 	print_r($arr);
 	echo '</pre>';
 }
+
 //Append a file's last modified time (mtime) to the url as a get parameter to prevent caching when it's updated.
 //Feed it a file path string relative to the theme's root.
-function auto_version($file){
+function serge_auto_version($file){
 	if ($file[0] != "/"){$file = "/" . $file;}
 	$file_url = get_template_directory_uri() . $file;
 	$file_path = get_template_directory() . $file;
@@ -34,7 +31,7 @@ function wp_get_attachment( $attachment_id ) {
 		'title' => $attachment->post_title
 		);
 }
-if (!is_admin()) {
+if ( !is_admin() ) {
 	//enqueus jquery if needed
 	wp_enqueue_script('jquery');
 
@@ -53,10 +50,9 @@ if (!is_admin()) {
 }
 global $sa_settings;
 if (!isset($sa_settings)){
-
 $sa_settings = get_option( 'sa_options' ); //gets the current value of all the settings as stored in the db
 }
-
+//pr($sa_settings);
 
 
 //New options page
@@ -83,9 +79,6 @@ function register_my_menus() {
 		);
 }
 add_action( 'init', 'register_my_menus' );
-
-
-
 
 
 //theme support for thumbnails and feeds
@@ -148,32 +141,18 @@ function is_url($url){
     }
     
     
-	//Custom editor stylesheet
+//Custom editor stylesheet
     add_editor_style( 'editor_style.css' );
-    
-
-//disable the auto-p
-    function WP_auto_formatting($content) {
-    	global $post;
-    	if(get_post_meta($post->ID, 'disable_auto_formatting', true) == 1) {
-    		remove_filter('the_content', 'wpautop');
-    	}
-    	return $content;
-    }
-    add_filter( "the_content", "WP_auto_formatting", 1 );
 
 
-//Stop TinyMCE from stripping out iframes
-    function mytheme_tinymce_config( $init ) {
-    	$valid_iframe = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
-    	if ( isset( $init['extended_valid_elements'] ) ) {
-    		$init['extended_valid_elements'] .= ',' . $valid_iframe;
-    	} else {
-    		$init['extended_valid_elements'] = $valid_iframe;
-    	}
-    	return $init;
-    }
-    add_filter('tiny_mce_before_init', 'mytheme_tinymce_config');
+//Add gallery attribute to galleries for lightbox
+    add_filter( 'wp_get_attachment_link' , 'sa_add_gallery_rel' );
+function sa_add_gallery_rel( $attachment_link ) {
+	global $post;
+	$attachment_link = str_replace('<a', '<a data-fancybox-group="group-' . $post->ID . '"', $attachment_link);
+	return $attachment_link;
+}
+
 
 //Retrieve the Posts page URL
     function get_posts_page_url() {
@@ -210,16 +189,15 @@ function is_url($url){
     		}
     	}
     	endif;
-
-
-
-
     	/* WooCommerce Shizz */
 
     	add_theme_support( 'woocommerce' );
 
 if(function_exists('is_woocommerce')): //only execute the following if woocommerce is running.
 
+// Extra tab and panel for product pages
+
+require_once('functions/tabs.php');
 
 	//Hide the "add to cart button" on shop pages
 add_filter( 'woocommerce_loop_add_to_cart_link', 'custom_woocommerce_loop_add_to_cart_link' );
@@ -232,12 +210,31 @@ function custom_woocommerce_loop_add_to_cart_link( $button ) {
 	return $button;
 }
 
+//hide the sales badge
+add_filter('woocommerce_sale_flash', 'woo_custom_hide_sales_flash');
+function woo_custom_hide_sales_flash()
+{
+	return false;
+}
 
-	// Change number or products per row to 4
-add_filter('loop_shop_columns', 'loop_columns');
-if (!function_exists('loop_columns')) {
-	function loop_columns() {
-		return 4;
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+
+    //unset( $tabs['description'] );      	// Remove the description tab
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+    unset( $tabs['additional_information'] );  	// Remove the additional information tab
+
+    return $tabs;
+
+}
+
+
+	// Change number or products per row to 3
+add_filter('loop_shop_columns', 'serge_loop_columns');
+if (!function_exists('serge_loop_columns')) {
+	function serge_loop_columns() {
+		return 3;
 	}
 }
 
@@ -246,7 +243,7 @@ if (!function_exists('loop_columns')) {
 if($_GET['showall']==1)
 	{ $num_prods = 99;}
 else
-	{ $num_prods=12;}
+	{ $num_prods = 21;}
 
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return '.$num_prods.';' ), 20 );
 
@@ -258,21 +255,6 @@ function serge_insert_socmed( ) {
 	include(get_template_directory() .'/social_buttons.php');
 	echo "<br/>";
 }
-
-//Load the fancybox on all pages
-// if (!is_admin()){
-// 	add_action( 'wp_enqueue_scripts', 'lightbox' );
-// 	function lightbox() {
-// 		global $woocommerce;
-// 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-// 		{
-// 			wp_enqueue_script( 'prettyPhoto', $woocommerce->plugin_url() . '/assets/js/prettyPhoto/jquery.prettyPhoto' . $suffix . '.js', array( 'jquery' ), $woocommerce->version, true );
-// 			wp_enqueue_script( 'prettyPhoto-init', $woocommerce->plugin_url() . '/assets/js/prettyPhoto/jquery.prettyPhoto.init' . $suffix . '.js', array( 'jquery' ), $woocommerce->version, true );
-// 			wp_enqueue_style( 'woocommerce_prettyPhoto_css', $woocommerce->plugin_url() . '/assets/css/prettyPhoto.css' );
-// 		}
-// 	}
-
-// }
 
 function wc_micro_cart(){
 	if (!isset($woocommerce)) { global $woocommerce;} ?>

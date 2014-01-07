@@ -20,7 +20,7 @@
 			<?php the_excerpt(); ?>
 			
 </div>
-			<?php //wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', '' ), 'after' => '</div>' ) ); ?>
+
 
 			<div class="clear"></div>
 	

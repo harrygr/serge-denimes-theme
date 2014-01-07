@@ -48,6 +48,21 @@ jQuery(document).ready(function ($) {
     //Fancybox activate
     $(".zoom").fancybox({
         padding: 0
+        <?php if(is_page( 'lookbook' )){ ?>
+        ,    
+        margin     : 5,
+        autoCenter : false,
+        title      : false,
+        afterLoad  : function () {
+            $.extend(this, {
+                aspectRatio : false,
+                type    : 'html',
+                width   : '100%',
+                height  : '100%',
+                content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: cover; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
+            });
+        }
+        <?php } ?>
     });
     $('a[rel=fancybox-media]').fancybox({
         padding: 0,
@@ -55,6 +70,11 @@ jQuery(document).ready(function ($) {
             media: true
         }
     });
+
+    //trigger fancybox popup
+    <?php if(is_page( 'lookbook' )){ ?>
+    $('.image-grid .sub-image:first a').trigger('click');
+    <?php } ?>
 });
 </script>
 <?php wp_footer(); ?>

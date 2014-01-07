@@ -1,9 +1,11 @@
 <div id="social_buttons">
 
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="sdnimes" >Tweet</a>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="lizziecolman" >Tweet</a>
 
 
-<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<?php the_permalink(); ?>" layout="button_count" show_faces="false" width="85"></fb:like>
+<!-- <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<?php the_permalink(); ?>" layout="button_count" show_faces="false" width="85"></fb:like> -->
+
+<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 
 <?php
 if (has_post_thumbnail()){ 

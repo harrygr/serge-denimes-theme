@@ -56,5 +56,10 @@ Template Name: Lookbook
 	<p class="center">Sorry, but you are looking for something that isn&#39;t here.</p>
 	<?php endif; ?>
 </div> <!-- /#page_content -->
-
+<style>
+	.fancybox-close{
+		top:7px;
+		right:7px;
+	}
+</style>
 <?php get_footer(); ?>

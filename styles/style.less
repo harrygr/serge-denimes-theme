@@ -9,27 +9,45 @@ Author URI: http://harryg.me
 @body-font: 'Lato', arial, serif;
 @light-button-bg: #F7F6F7;
 @light-button-bg-hover: darken(#f7f6f7,4%);
+@link-color: lighten(#444,6%); //was #2c4270
+@link-hover: lighten(@link-color, 17%);
+@text-red: #cd3432;
+
+@sidebar-width: 230px;
+@content-width: 700px;
+
+//Store image sizes
+@archive-pic-width: 31%;
+//@archive-pic-height: ;
+@archive-pic-margin: 3.5%;
+
+@single-product-pic-width: 47%;
+@single-product-pic-height: @single-product-pic-width * 1.375;
 
 //Style classes
 .transition(@what: all, @time: .25s, @how: ease)
 {
-	 	-webkit-transition: @what @time @how;
- 	   -moz-transition: @what @time @how;
- 	    -ms-transition: @what @time @how;
- 	     -o-transition: @what @time @how;
- 	        transition: @what @time @how;
+	-webkit-transition: @what @time @how;
+	-moz-transition: @what @time @how;
+	-ms-transition: @what @time @how;
+	-o-transition: @what @time @how;
+	transition: @what @time @how;
 }
 .border-box{
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
-
+.youtube-player{
+	width: 100%;
+	height:393px;
+}
 @import 'fancybox.less';
 @import 'fontello.less';
 @import 'comment_style.less';
 @import 'store.less';
-@import 'home-style.less';
+
+@import 'adhoc.less';
 
 
 body {
@@ -73,8 +91,8 @@ blockquote cite {
 }
 hr{
 	background-color: #CCC;
-    border: 0 none;
-    height: 2px;
+	border: 0 none;
+	height: 2px;
 }
 .clear {
 	clear: both;
@@ -118,25 +136,26 @@ input{
 	padding: 0px 20px 10px 20px;
 }
 #wrapper a {
-	color: #2C4270;
+	color: @link-color;
 }
 #wrapper a:hover {
-	color: #333;
+	color: @link-hover;
 }
 #page_content {
-	float: left;
-	width: 630px;
+	float: right;
+	width: @content-width;
 	overflow: hidden;
 }
 .full-width {
 	width: 100%!important;
 }
 .full-width img {
-	max-width: 960px;
+	max-width: 100%;
+	height:auto;
 }
 #sidebar {
-	float: right;
-	width: 300px;
+	float: left;
+	width: @sidebar-width;
 	overflow: hidden;
 }
 #header {
@@ -280,10 +299,10 @@ ul#menu-header-menu{
 	font-size: 0;
 	line-height: 0
 }
-#content p {
+#main-content p {
 	line-height: 20px;
 }
-#content .entry p{
+#main-content .entry p{
 	text-align:justify;
 }
 #page_content img {
@@ -291,26 +310,31 @@ ul#menu-header-menu{
 	height: auto;
 	margin-bottom: 10px;
 }
-#page_content table {
+.woocommerce-tabs table{
+	font-size: 11px;
+}
+.woocommerce-tabs table, #page_content table {
 	border-collapse: collapse;
 	width: 100%;
-	border: 1px solid #ddd;
 	text-align: left;
+	thead tr{
+		background-color: #efefef;
+	}
+	tr{
+		border-top: 1px #ddd solid;
+		margin: 0;
+		padding: 0;
+	}
+	th{
+		line-height: 32px;
+		padding: 4px;
+		font-weight: normal;
+	}
+	td{
+		padding: 4px;
+	}
 }
-#page_content table tr {
-	border: 0;
-	margin: 0;
-	padding: 0;
-}
-#page_content table th {
-	line-height: 32px;
-	padding: 4px;
-	font-weight: normal;
-}
-#page_content table td {
-	border-top: 1px #ddd solid;
-	padding: 4px;
-}
+
 .post {
 	padding: 8px 0px 8px 0px;
 	border-bottom: 1px #ccc solid;
@@ -354,7 +378,7 @@ ul#menu-header-menu{
 	text-decoration: none!important;
 }
 .entry a:hover {
-	color: #555;
+	color: @link-hover;
 	text-decoration: none;
 }
 #sidebar ul {
@@ -364,7 +388,7 @@ ul#menu-header-menu{
 	list-style-type: none;
 }
 #sidebar a:hover, .post a:hover, #footer a:hover, .page a:hover {
-	color: #444;
+	color: @link-hover;
 }
 #sidebar .widget li {
 	border-top: 1px #eee solid;
@@ -431,7 +455,7 @@ span.spotify-meta a{
 	font-size: 21px;
 }
 .pnavigation p a:hover, #commentbox .navigation .prev:hover, #commentbox .navigation .next:hover, .woocommerce .navigation a:hover {
-	color: #555;
+	color: @link-hover;
 }
 .nav_arrow {
 	font-style: normal;
@@ -480,7 +504,7 @@ span.spotify-meta a{
 }
 
 .wpcf7 textarea{
-width:60%;
+	width:60%;
 }
 
 /***************** Social Media Buttons *****************/
@@ -577,7 +601,7 @@ footer #social_buttons{
 /*For the subscribe Box */
 .jetpack_subscription_widget form p:last-child input[type=submit] {
 	padding: 0 5px;
-		background-color: @light-button-bg;
+	background-color: @light-button-bg;
 	.transition;
 }
 .jetpack_subscription_widget form p:last-child input[type=submit]:hover{
@@ -729,4 +753,5 @@ input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+@import 'home-style.less';
 @import 'style-res.less';

@@ -4,8 +4,6 @@ Template Name: Team Page Template
 */
 ?>
 <style>
-
-
 .team-member {
 	box-sizing: border-box;
 	 -moz-box-sizing: border-box;
@@ -76,7 +74,7 @@ margin:18px auto;
 </style>
 
 <?php get_header(); ?>
-<!-- Snarf: using page.php -->
+<!-- Snarf: using team-template.php -->
 <div id="page_content"  class="full-width">
 	<?php if(have_posts()) : ?>
 
@@ -86,12 +84,14 @@ margin:18px auto;
 		<div class="entry">
 			<div id="team-members">
 				<?php
-				if ($images = get_children(
-		array( // Check if there is any attachments
+				if ($images = get_posts(
+		array( // Check if there are any attachments
 			'post_type' => 'attachment',
 			'numberposts' => null,
 			'post_status' => null,
 			'numberposts' => -1,
+			'orderby'	  => 'menu_order',
+			'order'		  => 'ASC',
 			'post_parent' => $post->ID)
 		)){
 					foreach($images as $image) {
@@ -116,19 +116,10 @@ margin:18px auto;
 		</p>
 	</div><!-- /#post-<?php the_ID(); ?> -->
 <?php endwhile; ?>
-<?php //if ($sa_settings['sa_pagecommentdisable'] == '') { comments_template(); }?>
+
 <?php else : ?>
 	<h4 class="center">Not Found</h4>
 	<p class="center">Sorry, but you are looking for something that isn&#39;t here.</p>
 <?php endif; ?>
 </div> <!-- /#page_content -->
-<script>
-	jQuery(function($){
-
-		// if ($(window.width() > 641)){
-		// $('.team-member-text').height($('.team-member-text').width());
-		// }
-		
-	});
-</script>
 <?php get_footer(); ?>

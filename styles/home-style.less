@@ -1,11 +1,37 @@
-﻿#home-buttons {
+﻿
+
+//Home page specific variables
+
+@row1-height: 308px;
+@row2-height: 346.5px;
+@row3-height: 153px;
+
+@home-margin: 18px;
+
+@row1-width: @row1-height;
+@row2-width: 154px;
+@middle-youtube-width: 616px;
+
+@tile-font-size: 36px;
+
+.img-third-width{
+	width: @row1-width;
+	margin: 0 @home-margin @home-margin 0;
+	height:auto;
+	&.last{
+		margin-right:0;
+	}
+}
+
+#home-buttons {
 	position: relative;
-	height: 725px;
+	clear:both;
+	height: @row1-height + @row2-height + @row3-height + 3 * @home-margin;
 }
 #home-buttons p {
 	font-family: "Oswald", arial, serif;
-	color: #FFF;
-	font-size: 36px;
+	color: #fff;
+	font-size: @tile-font-size;
 	text-transform:uppercase;
 	line-height: 41px;
 	margin: 0;
@@ -18,14 +44,10 @@
 	padding:7px 0;
 	overflow: hidden;
 	opacity: 0;
-	-moz-transition: opacity 0.7s ease 0s;
-	-webkit-transition: opacity 0.7s ease 0s;
-	transition: opacity 0.7s ease 0s;
+	.transition(opacity, 0.7s);
 }
 #home-buttons a:hover > p {
-	-moz-transition: opacity 0.7s ease 0s;
-	-webkit-transition: opacity 0.7s ease 0s;
-	transition: opacity 0.7s ease 0s;
+	.transition(opacity, 0.7s);
 	opacity: 1;
 }
 #his3container p {
@@ -34,7 +56,7 @@
 .home_thumb_caption {
 	display: block;
 	font-size: 13px;
-	line-height: 19px;
+	margin: 0;
 	width: 100%;
 }
 #home-buttons img {
@@ -43,36 +65,50 @@
 }
 .top_homelink {
 	position: absolute;
-	height: 308px;
-	width: 308px;
+	height: @row1-height;
+	width: @row1-width;
 	margin-bottom: 0px;
 	top: 0;
 }
 #homelink2 {
-	left: 326px;
+	left: @row1-width + @home-margin;
 }
 #homelink3 {
-	left: 652px;
+	left: 2 * (@row1-width + @home-margin);
 }
 .middlerowimages {
 	position: absolute;
-	top: 326px;
-	width: 471px;
-	height: 210px;
+	top: @row1-height + @home-margin;
+	// width: 471px;
+	// height: 210px;
+	width: @row2-width;
+	height: @row2-height;
+	img{
+		width:100%;
+		height:100%;
+	}
+	p{
+	font-size:@tile-font-size * .8!important;
+	}
+}
+#middleyoutube{
+	left: @row2-width + @home-margin;
 }
 #middlerowimage2 {
-	left: 489px;
+	//left: 489px;
+	left: @middle-youtube-width + @row2-width + 2 * @home-margin;
 }
 .simply-scroll, .simply-scroll .simply-scroll-clip {
-	height: 153px;
+	height: @row3-height;
 	width: 960px;
 	padding: 0;
 }
 #his3container {
 	position: absolute;
 	width: 960px;
-	height: 153px;
-	top: 553px;
+	height: @row3-height;
+	//top: 553px;
+	top: @row1-height + @row2-height + 2 * @home-margin;
 }
 .simply-scroll-container {
 	/* Container DIV - automatically generated */
@@ -80,12 +116,12 @@
 }
 .simply-scroll-clip {
 	/* Clip DIV - automatically generated */
-		position: relative;
+	position: relative;
 	overflow: hidden;
 }
 .simply-scroll-list {
 	/* UL/OL/DIV - the element that simplyScroll is inited on */
-		overflow: hidden;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -102,14 +138,14 @@
 .simply-scroll {
 	/* Customisable base class for style override DIV */
 	width: 960px;
-	height: 153px;
+	height: @row3-height;
 }
 .simply-scroll .simply-scroll-clip {
 	width: 960px;
-	height: 153px;
+	height: @row3-height;
 }
 .simply-scroll .simply-scroll-list li {
 	float: left;
 	width: 960px;
-	height: 153px;
+	height: @row3-height;
 }
