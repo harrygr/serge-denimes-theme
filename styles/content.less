@@ -1,29 +1,4 @@
-﻿/*
-Theme Name: Serge Denimes
-Description: 
-Version: 2.0.1
-Author: Harry G
-Author URI: http://harryg.me
-*/
-
-@body-font: 'Lato', arial, serif;
-@light-button-bg: #F7F6F7;
-@light-button-bg-hover: darken(#f7f6f7,4%);
-@link-color: lighten(#444,6%); //was #2c4270
-@link-hover: lighten(@link-color, 17%);
-@text-red: #cd3432;
-
-@sidebar-width: 230px;
-@content-width: 700px;
-
-//Store image sizes
-@archive-pic-width: 31%;
-//@archive-pic-height: ;
-@archive-pic-margin: 3.5%;
-
-@single-product-pic-width: 47%;
-@single-product-pic-height: @single-product-pic-width * 1.375;
-
+﻿
 //Style classes
 .transition(@what: all, @time: .25s, @how: ease)
 {
@@ -42,13 +17,6 @@ Author URI: http://harryg.me
 	width: 100%;
 	height:393px;
 }
-@import 'fancybox.less';
-@import 'fontello.less';
-@import 'comment_style.less';
-@import 'store.less';
-
-@import 'adhoc.less';
-
 
 body {
 	font-family: @body-font;
@@ -503,65 +471,8 @@ span.spotify-meta a{
 	float: right;
 }
 
-.wpcf7 textarea{
-	width:60%;
-}
 
-/***************** Social Media Buttons *****************/
-@fb-blue: #3b5998;
-@tw-blue: #00aced;
-@yt-red:  #bb0000;
-@pi-red:  #cb2027;
-@tb-turq: #32506d;
-@sp-green:#7AB800;
-.socmed a [class^="icon-"]{
-	color:#000;
-	.transition(color);
-}
-a .icon-facebook:hover{
-	color:@fb-blue;
-}
-a .icon-twitter:hover{
-	color:@tw-blue;
-}
-a .icon-tumblr:hover{
-	color:@tb-turq;
-}
-a .icon-youtube:hover{
-	color:@yt-red;
-}
-a .icon-spotify:hover{
-	color:@sp-green;
-}
-a .icon-pinterest:hover{
-	color:@pi-red;
-}
-footer #social_buttons{
-	float:left;
-}
-.socmed {
-	position: absolute;
-	left: 0;
-	top: 10px;
-}
-.social_buttons {
-	text-align: right;
-}
-.twitter-share-button {
-	vertical-align: top;
-}
-.subscribe-widget p {
-	line-height: 28px!important;
-	height: 28px;
-	background: transparent url('img/feed-icon-28x28.png') no-repeat scroll left center;
-	padding-left: 32px;
-	font-size: 17px;
-}
-.fb_iframe_widget{
-	vertical-align: top;
-	margin-right: 30px;
-}
-/***************** END Social Media Buttons *****************/
+
 #bottom-menu {
 	font-size: 12px;
 	min-height: 60px;
@@ -599,14 +510,7 @@ footer #social_buttons{
 	background-color: #333;
 }
 /*For the subscribe Box */
-.jetpack_subscription_widget form p:last-child input[type=submit] {
-	padding: 0 5px;
-	background-color: @light-button-bg;
-	.transition;
-}
-.jetpack_subscription_widget form p:last-child input[type=submit]:hover{
-	background-color: @light-button-bg-hover;
-}
+
 
 #sidebar .jetpack_subscription_widget {
 	font-size: 13px;
@@ -747,11 +651,3 @@ footer#footer .widget {
 	display: inline-block;
 }
 
-//hide webkits html5 spinner
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-@import 'home-style.less';
-@import 'style-res.less';

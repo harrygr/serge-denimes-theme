@@ -68,24 +68,20 @@ h1.page-title{
 	background-color: #F8FFEF;
 }
 
-input[type=submit]{
-	-webkit-appearance: none;
-}
 
 ul.page-numbers li .page-numbers {
-	background-color: @light-button-bg;
-	border: 1px solid #C7C0C7;
-	display: inline-block;
-	height: 20px;
-	margin-right: 5px;
-	padding: 4px;
-	text-align: center;
-	width: 20px;
-	border-radius: 2px;
+	.button;
+	// background-color: @light-button-bg;
+	// border: 1px solid #C7C0C7;
+	// display: inline-block;
+	// height: 20px;
+	// margin-right: 5px;
+	// padding: 4px;
+	// text-align: center;
+	// width: 20px;
+	// border-radius: 2px;
 }
-ul.page-numbers li a.page-numbers:hover{
-	background-color: @light-button-bg-hover;
-}
+
 ul.page-numbers li a.next:before{
 	content: "Next ";
 }
@@ -113,12 +109,7 @@ ul.page-numbers {
 	margin-top:-36px;
 }
 
-.woocommerce-invalid input{
-	box-shadow: 0 0 3px #E36A64;
-}
-.woocommerce-validated input{
-	box-shadow: 0 0 3px #85ad74;
-}
+
 /* -------------- End of My Styles --------------- */
 
 
@@ -699,76 +690,7 @@ ul.products li.last {
 .woocommerce-ordering {
 	margin-bottom: 2em;
 }
-a.button, button.button, input.button, #respond input#submit, #content input.button, input[type=submit] {
-	font-size: 100%;
-	margin: 0;
-	line-height: 1em;
-	cursor: pointer;
-	position: relative;
-	font-family: inherit;
-	text-decoration: none;
-	overflow: visible;
-	padding: 6px 10px;
-	text-decoration: none;
-	//font-weight: bold;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	left: auto;
-	//text-shadow: 0 1px 0 #ffffff;
-	color: #5e5e5e;
-	//text-shadow: 0 1px 0 rgba(255,255,255,0.8);
-	border: 1px solid #c7c0c7;
-	background: @light-button-bg;
-	// background: -webkit-gradient(linear,left top,left bottom,from(#f7f6f7),to(#dfdbdf));
-	// background: -webkit-linear-gradient(#f7f6f7,#dfdbdf);
-	// background: -moz-linear-gradient(center top,#f7f6f7 0%,#dfdbdf 100%);
-	// background: -moz-gradient(center top,#f7f6f7 0%,#dfdbdf 100%);
-	/*
-	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);box-shadow:inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1)
-	*/
-}
-a.button.loading, button.button.loading, input.button.loading, #respond input#submit.loading, #content input.button.loading {
-	color: #777777;
-	border: 1px solid @light-button-bg;
-}
-a.button.loading:before, button.button.loading:before, input.button.loading:before, #respond input#submit.loading:before, #content input.button.loading:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	background: url(img/ajax-loader.gif) center no-repeat rgba(255,255,255,0.65);
-}
-a.button.added:before, button.button.added:before, input.button.added:before, #respond input#submit.added:before, #content input.button.added:before {
-	content: "";
-	position: absolute;
-	height: 16px;
-	width: 16px;
-	top: 0.35em;
-	right: -26px;
-	text-indent: 0;
-	background: url(img/success.png) no-repeat;
-}
-a.button:hover, button.button:hover, input.button:hover, #respond input#submit:hover, #content input.button:hover, input[type=submit] {
-	background: darken(#f7f6f7,4%);
-	text-decoration: none;
-}
-a.button:active, button.button:active, input.button:active, #respond input#submit:active, #content input.button:active {
-	top: 1px;
-}
-a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt, #content input.button.alt {
-	background: #333;
 
-	border-color: #333;
-	color: #fff;
-
-}
-a.button.alt:hover, button.button.alt:hover, input.button.alt:hover, #respond input#submit.alt:hover, #content input.button.alt:hover {
-	background: #666;
-	color: #ffffff;
-}
 .cart .button, .cart input.button {
 	float: none;
 }
@@ -1326,10 +1248,7 @@ ul.cart_list li .star-rating, ul.product_list_widget li .star-rating {
 .checkout .create-account p:first-child{
 	font-size:13px;
 }
-#customer_details input, #page_content input[type=text], #page_content input[type=password], #page_content input[type=email]{
-	height: 27px;
-	padding: 3px;
-}
+
 form .form-row {
 	padding: 3px;
 	margin: 0 0 6px;

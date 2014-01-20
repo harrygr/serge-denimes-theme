@@ -1,0 +1,46 @@
+//hide webkits html5 spinner
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=submit]{
+	-webkit-appearance: none;
+}
+
+#customer_details input, 
+#page_content input[type=text], 
+#page_content input[type=password], 
+#page_content input[type=email]{
+	height: 27px;
+	padding: 3px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+	border-color: #ccc #ccc #ddd #ddd;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	&:focus{
+		box-shadow: 0 0 3px #bbb;
+		outline: none;
+	}
+}
+// Contact Form 7
+.wpcf7 textarea{
+	width:60%;
+}
+
+
+// Validation
+.woocommerce-invalid input{
+	box-shadow: 0 0 3px #E36A64;
+}
+.woocommerce-validated input{
+	box-shadow: 0 0 3px #85ad74;
+}

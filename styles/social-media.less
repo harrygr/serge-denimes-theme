@@ -1,0 +1,55 @@
+/***************** Social Media Buttons *****************/
+@fb-blue: #3b5998;
+@tw-blue: #00aced;
+@yt-red:  #bb0000;
+@pi-red:  #cb2027;
+@tb-turq: #32506d;
+@sp-green:#7AB800;
+.socmed a [class^="icon-"]{
+	color:#000;
+	.transition(color);
+}
+a .icon-facebook:hover{
+	color:@fb-blue;
+}
+a .icon-twitter:hover{
+	color:@tw-blue;
+}
+a .icon-tumblr:hover{
+	color:@tb-turq;
+}
+a .icon-youtube:hover{
+	color:@yt-red;
+}
+a .icon-spotify:hover{
+	color:@sp-green;
+}
+a .icon-pinterest:hover{
+	color:@pi-red;
+}
+footer #social_buttons{
+	float:left;
+}
+.socmed {
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+.social_buttons {
+	text-align: right;
+}
+.twitter-share-button {
+	vertical-align: top;
+}
+.subscribe-widget p {
+	line-height: 28px!important;
+	height: 28px;
+	background: transparent url('img/feed-icon-28x28.png') no-repeat scroll left center;
+	padding-left: 32px;
+	font-size: 17px;
+}
+.fb_iframe_widget{
+	vertical-align: top;
+	margin-right: 30px;
+}
+/***************** END Social Media Buttons *****************/

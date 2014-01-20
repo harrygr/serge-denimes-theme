@@ -1,3 +1,17 @@
 #menu-item-12787 a{
 	color: @text-red!important;
 }
+
+.woocommerce-message, .woocommerce-error{
+	display:block;
+	list-style-type: none;
+	background-color: #f5f5f5;
+	padding:2em .5em;
+	border-left: 6px @alert-green solid;
+	.button{
+		margin-top:-6px;
+	}
+}
+.woocommerce-error{
+	border-left: 6px @alert-red solid;
+}
