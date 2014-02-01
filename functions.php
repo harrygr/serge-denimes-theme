@@ -33,20 +33,30 @@ function wp_get_attachment( $attachment_id ) {
 }
 if ( !is_admin() ) {
 	//enqueus jquery if needed
+	wp_deregister_script('jquery');
+        wp_register_script(
+        	'jquery', 
+        	'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js', 
+        	false, 
+        	'2.0.2'
+        	);
 	wp_enqueue_script('jquery');
 
 	//enqueue the twitter js file
 	wp_register_script( 'twitter_widgets','http://platform.twitter.com/widgets.js' );
 	wp_enqueue_script('twitter_widgets');
-	
-	wp_register_script('scroller',
-		get_template_directory_uri() . '/js/jquery.simplyscroll.js',
-		array('jquery'),
-		'1.0' );
-	wp_enqueue_script('scroller');
-	wp_register_script( 'fancybox', 
-		get_template_directory_uri() . '/fancybox/source/jquery.fancybox-ck.js', array('jquery'), '2.1.5', 0 );
-	wp_enqueue_script( 'fancybox' );
+
+	wp_register_script( 
+		'serge-scripts',
+		get_template_directory_uri() . '/js/serge-scripts-ck.js', 
+		array('jquery'), 
+		2.1,
+		true
+		 );
+	wp_enqueue_script( 'serge-scripts');
+
+	//load in the store page image flipper plugin
+	require_once('functions/image-flipper.php');
 }
 global $sa_settings;
 if (!isset($sa_settings)){

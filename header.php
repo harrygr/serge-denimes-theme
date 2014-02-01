@@ -64,7 +64,9 @@ if ( $sa_settings['sa_custom_css'] ){ //<!-- Here is the custom css -->
 	if ($sa_settings['sa_analytics_code'] != ''){
 		echo stripcslashes($sa_settings['sa_analytics_code']);
 	} ?>
+	<!-- Loaded by wp_head() -->
 	<?php wp_head(); ?>
+	<!-- /Loaded by wp_head() -->
 </head>
 <body <?php body_class(); ?>>
 

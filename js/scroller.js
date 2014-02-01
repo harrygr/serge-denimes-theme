@@ -1,11 +1,5 @@
 /* * User Defining Area * */
 
-
-
-data=[
-["http://sergedenim.es/scroller.jpg" ,"Alt / Title text for image 2",""] /* no comma at end of last index */
-]
-
 imgPlaces=1 /* number of images visible */
 imgWidth=960 /* width of the images */ 
 imgHeight=153 /* height of the images */
