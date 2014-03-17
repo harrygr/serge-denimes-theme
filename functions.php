@@ -1,4 +1,5 @@
 <?php
+
 function pr($arr){
 	echo '<pre>';
 	print_r($arr);
@@ -43,7 +44,7 @@ if ( !is_admin() ) {
 	wp_enqueue_script('jquery');
 
 	//enqueue the twitter js file
-	wp_register_script( 'twitter_widgets','http://platform.twitter.com/widgets.js' );
+	wp_register_script( 'twitter_widgets','//platform.twitter.com/widgets.js' );
 	wp_enqueue_script('twitter_widgets');
 
 	wp_register_script( 
@@ -90,6 +91,8 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+//disable the built-in woocommerce style
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 //theme support for thumbnails and feeds
 add_theme_support( 'post-thumbnails' );

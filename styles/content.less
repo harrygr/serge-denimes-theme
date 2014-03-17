@@ -47,15 +47,15 @@ a {
 blockquote {
 	font-style: italic;
 	color: #999;
-}
-blockquote p:first-child:first-letter {
-	font-size: 50px;
+	p:first-child:first-letter {
+			font-size: 50px;
 	font-family: "Monotype Corsiva", "Apple Chancery", fantasy;
 	float: left;
 	margin: 0.1em 0.15em 0 0;
-}
-blockquote cite {
-	font-weight: bold;
+	}
+	cite{
+			font-weight: bold;
+	}
 }
 hr{
 	background-color: #CCC;
@@ -116,10 +116,10 @@ input{
 }
 .full-width {
 	width: 100%!important;
-}
-.full-width img {
-	max-width: 100%;
+	img {
+			max-width: 100%;
 	height:auto;
+	}
 }
 #sidebar {
 	float: left;
@@ -127,31 +127,30 @@ input{
 	overflow: hidden;
 }
 #header {
-	
-	padding: 4px 0 0 0;
-	//background: transparent url('img/peacock.png') no-repeat scroll left 30px;
-	text-align: center;
-	position: relative;
-}
-#header h1 a {
-	letter-spacing: -0.02em;
-	text-decoration: none;
-	color: #000;
-	font-size: 38px;
-}
-#header h2 {
-	font-weight: normal;
-	font-size: 16px;
-	font-style: italic;
-	color: #ccc;
-	margin-top: 5px;
-	margin-bottom: 25px;
-}
-#header .searchform {
-	float: right;
-	position: absolute;
-	/*top:155px;*/
-	right:0;
+    padding: 4px 0 0 0;
+    text-align: center;
+    position: relative;
+    h1 {
+        a {
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: #000;
+            font-size: 38px;
+        }
+    }
+    h2 {
+        font-weight: normal;
+        font-size: 16px;
+        font-style: italic;
+        color: #ccc;
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+    .searchform {
+        float: right;
+        position: absolute;
+        right:0;
+    }
 }
 .searchform .s {
 	width: 130px;
@@ -318,30 +317,32 @@ ul#menu-header-menu{
 	max-width: 75%;
 	float: left;
 }
-.dater {
+.post-head-meta {
 	float: right;
 	color: #aaa;
 	font-size: 14px;
 	margin-top: 15px;
+	.comments{
+		display: inline-block;
+		height: 27px;
+		margin-left: 9px;
+		padding-top: 4px;
+		width: 21px;
+		text-align: center;
+		background: transparent url('img/speech.png') no-repeat scroll center center;
+	}
 }
-.dater .comments {
-	display: inline-block;
-	height: 27px;
-	margin-left: 9px;
-	padding-top: 4px;
-	width: 21px;
-	text-align: center;
-	background: transparent url('img/speech.png') no-repeat scroll center center;
-}
+
 .entry {
 	clear: both;
+	p, ol, ul{
+		color: @body-text-color;
+	}
+	a {
+		text-decoration: underline;
+	}
 }
-.entry p, .entry ol, .entry ul {
-	color: #111;
-}
-.entry a {
-	text-decoration: underline;
-}
+
 .minis a {
 	text-decoration: none!important;
 }
@@ -351,10 +352,11 @@ ul#menu-header-menu{
 }
 #sidebar ul {
 	padding: 0;
+	li {
+		list-style-type: none;
+	}
 }
-#sidebar ul li {
-	list-style-type: none;
-}
+
 #sidebar a:hover, .post a:hover, #footer a:hover, .page a:hover {
 	color: @link-hover;
 }
@@ -460,32 +462,29 @@ span.spotify-meta a{
 	margin-top: 15px;
 	padding: 15px;
 	border: 1px #ddd solid;
+	p {
+		color: #333;
+	}
+	h2:first-child {
+		margin-top: 0;
+	}
+	.avatar {
+		float: right;
+	}
 }
-#author-description p {
-	color: #333;
-}
-#author-description h2:first-child {
-	margin-top: 0;
-}
-#author-description .avatar {
-	float: right;
-}
-
-
-
 #bottom-menu {
 	font-size: 12px;
 	min-height: 60px;
-}
-#bottom-menu ul {
-	list-style-type: none;
-	text-align: left;
-	padding: 0;
-}
-#bottom-menu ul li {
-	display: inline-block;
-	padding-left: 0px;
-	padding-right: 15px;
+	ul {
+		list-style-type: none;
+		text-align: left;
+		padding: 0;
+		li {
+			display: inline-block;
+			padding-left: 0px;
+			padding-right: 15px;
+		}
+	}
 }
 
 .widget_twitter .timesince {
@@ -504,40 +503,43 @@ span.spotify-meta a{
 	font-size: 12px;
 	margin-top: 2px;
 	display: none;
-}
-#register_link a:hover {
-	color: #fff;
-	background-color: #333;
+	&:hover{
+		color: #fff;
+		background-color: #333;
+	}
 }
 /*For the subscribe Box */
 
 
-#sidebar .jetpack_subscription_widget {
-	font-size: 13px;
-}
-#sidebar .jetpack_subscription_widget p {
-	line-height: 13px;
-}
-#sidebar .jetpack_subscription_widget form p:nth-last-child(2){
-	font-size: 15px;
-	vertical-align: top;
-	margin:0;
-	width: 208px;
-	display:inline-block;
-}
-#sidebar .jetpack_subscription_widget form p:nth-last-child(2) input{
-	padding: 0 2px;height: 24px;
-}
-#sidebar .jetpack_subscription_widget form p:last-child {
-	display: inline-block;
-	margin: 0;
-
-}
-#sidebar .jetpack_subscription_widget form p:last-child input[type=submit] {
-	height: 28px;
-	margin-top: 0;
-	font-size: 13px;
-
+#sidebar {
+	.jetpack_subscription_widget {
+		font-size: 13px;
+		p {
+			line-height: 13px;
+		}
+		form {
+			p:nth-last-child(2) {
+				font-size: 15px;
+				vertical-align: top;
+				margin:0;
+				width: 208px;
+				display:inline-block;
+				input {
+					padding: 0 2px;
+					height: 24px;
+				}
+			}
+			p:last-child {
+				display: inline-block;
+				margin: 0;
+				input[type=submit] {
+					height: 28px;
+					margin-top: 0;
+					font-size: 13px;
+				}
+			}
+		}
+	}
 }
 
 /***************** Footer Widgets *****************/
@@ -554,15 +556,15 @@ footer#footer .widget {
 	margin-top:15px;
 	border-width: 1px;
 	border-color: #cccccc;
-}
-.footer-widget .widgettitle {
-	display: none;
-}
-.footer-widget ul {
-	padding: 0;
-}
-.footer-widget ul li {
-	list-style-type: none;
+	.widgettitle {
+		display: none;
+	}
+	ul {
+		padding: 0;
+		li {
+			list-style-type: none;
+		}
+	}
 }
 
 
@@ -576,36 +578,39 @@ footer#footer .widget {
 #footer-center {
 	border-style: none solid none solid;
 }
-.footer-widget .jetpack_subscription_widget form p:nth-last-child(2){
-	font-size: 15px;
-	vertical-align: top;
-	margin:0;
-	width: 200px;
-	display:inline-block;
-}
-.footer-widget .jetpack_subscription_widget form p:nth-last-child(2) input{
-	padding: 0 2px;
-	height: 18px;
-}
-.footer-widget .jetpack_subscription_widget form p:last-child {
-	display: inline-block;
-	margin: 0;
-
-}
-.footer-widget .jetpack_subscription_widget form p:last-child input[type=submit] {
-	height: 22px;
-	margin-top: 0;
-	font-size: 10px;
-	
-}
-.footer-widget .jetpack_subscription_widget .success {
-	position: absolute;
-	width: 300px;
-	background-color: #fff;
-}
-
-.footer-widget .jetpack_subscription_widget p{
-	text-align:center!important;
+.footer-widget {
+	.jetpack_subscription_widget {
+		form {
+			p:nth-last-child(2) {
+				font-size: 15px;
+				vertical-align: top;
+				margin:0;
+				width: 200px;
+				display:inline-block;
+				input {
+					padding: 0 2px;
+					height: 18px;
+				}
+			}
+			p:last-child {
+				display: inline-block;
+				margin: 0;
+				input[type=submit] {
+					height: 22px;
+					margin-top: 0;
+					font-size: 10px;
+				}
+			}
+		}
+		.success {
+			position: absolute;
+			width: 300px;
+			background-color: #fff;
+		}
+		p {
+			text-align:center!important;
+		}
+	}
 }
 /**************** Who wears page ****************/
 .whowears-column {
@@ -623,14 +628,14 @@ footer#footer .widget {
 	text-align: right;
 }
 .whowears-title {
-	color: #FFFFFF;
+	color: #fff;
 	float: left;
 	font-family: 'Oswald',arial,serif;
 	left: 15px;
 	margin-bottom: -40px;
 	margin-top: -40px;
 	position: relative;
-	text-shadow: 0 0 1px #000000;
+	text-shadow: 0 0 1px #000;
 	top: 45px;
 	width: 290px;
 }
@@ -640,14 +645,15 @@ footer#footer .widget {
 /**************** Lookbook styles ******************/
 .image-grid {
 	text-align: justify;
+	.sub-image {
+		display: inline-block;
+	}
+	&:after {
+		content: "";
+		display: inline-block;
+		width:100%;
+	}
+}
 
-}
-.image-grid:after{
-	content: "";
-	display: inline-block;
-	width:100%;
-}
-.image-grid .sub-image{
-	display: inline-block;
-}
+
 

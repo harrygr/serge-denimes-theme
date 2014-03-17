@@ -72,18 +72,19 @@ and (max-width:640px){
 	}
 	#header{
 		background-image: none;
-	}
-	#header .searchform .s{
-		width:37px;
-		-webkit-transition: width .25s ease;
-		-moz-transition: width .25s ease;
-		-ms-transition: width .25s ease;
-		-o-transition: width .25s ease;
-		transition: width .25s ease;
-		&:focus{
-			width:130px;
+		.searchform .s{
+			width:37px;
+			-webkit-transition: width .25s ease;
+			-moz-transition: width .25s ease;
+			-ms-transition: width .25s ease;
+			-o-transition: width .25s ease;
+			transition: width .25s ease;
+			&:focus{
+				width:130px;
+			}
 		}
 	}
+
 	.button{
 		margin-bottom:5px!important;
 	}
@@ -117,19 +118,13 @@ and (max-width:640px){
 	form.woocommerce-ordering{
 		top:30px;
 	}
-	#content div.product .woocommerce-tabs ul.tabs{
-		padding:0;
-		border-bottom: 1px @tab-border-color solid;
-		li{
-			display: block;
-			a{
-				width:100%;
-			}
-			&:after{
-				width:0;
-				height:0
-			}
-		}
+	#content div.product #social_buttons{
+		width:100%;
+		float:none;
+	}
+	#content div.product .woocommerce-tabs{
+		width:100%;
+		
 	}
 	ul.page-numbers li .page-numbers{
 		font-size: 80%;

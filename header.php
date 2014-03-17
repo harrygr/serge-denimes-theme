@@ -37,7 +37,7 @@ if ( $paged >= 2 || $page >= 2 )
 <meta name="description" content="<?php echo $meta_desc; ?>" />
 <?php }?>
 
-<link href='http://fonts.googleapis.com/css?family=Oswald|Lato:400' rel='stylesheet' type='text/css'> 
+<link href='//fonts.googleapis.com/css?family=Oswald|Lato:400' rel='stylesheet' type='text/css'> 
 <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
 <?php $stylesheet = serge_auto_version('styles/main.css'); ?>
 <link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" />
@@ -95,7 +95,7 @@ if ( $sa_settings['sa_custom_css'] ){ //<!-- Here is the custom css -->
 			</div>
 			<!-- /Social Media Links -->
 			<?php get_search_form(); ?> 
-			<?php if (is_url($sa_settings['sa_header_image'])){ ?>
+			<?php if ($sa_settings['sa_header_image']){ ?>
 			<a id="home_link" href="<?php bloginfo("url"); ?>"><img src="<?php echo $sa_settings['sa_header_image']; ?>" alt="<?php bloginfo('name'); ?>" height="175" width="565"/></a>
 			<h1 style="display:none;"><?php bloginfo('name'); ?></h1>
 			<h2 style="display:none;"><?php bloginfo('description'); ?></h2>

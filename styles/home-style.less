@@ -27,29 +27,36 @@
 	position: relative;
 	clear:both;
 	height: @row1-height + @row2-height + @row3-height + 3 * @home-margin;
+	p {
+		font-family: "Oswald", arial, serif;
+		color: #fff;
+		font-size: @tile-font-size;
+		text-transform:uppercase;
+		line-height: 41px;
+		margin: 0;
+		position: absolute;
+		text-align: center;
+		top: 40%;
+		width: 100%;
+		z-index: 99;
+		background-color: rgba(0, 0, 0, 0.5);
+		padding:7px 0;
+		overflow: hidden;
+		opacity: 0;
+		.transition(opacity, 0.7s);
+	}
+	img {
+		position: absolute;
+		z-index: 1;
+	}
+	a:hover {
+		& > p {
+			.transition(opacity, 0.7s);
+			opacity: 1;
+		}
+	}
 }
-#home-buttons p {
-	font-family: "Oswald", arial, serif;
-	color: #fff;
-	font-size: @tile-font-size;
-	text-transform:uppercase;
-	line-height: 41px;
-	margin: 0;
-	position: absolute;
-	text-align: center;
-	top: 40%;
-	width: 100%;
-	z-index: 99;
-	background-color: rgba(0, 0, 0, 0.5);
-	padding:7px 0;
-	overflow: hidden;
-	opacity: 0;
-	.transition(opacity, 0.7s);
-}
-#home-buttons a:hover > p {
-	.transition(opacity, 0.7s);
-	opacity: 1;
-}
+
 #his3container p {
 	top: 34%;
 }
@@ -59,10 +66,7 @@
 	margin: 0;
 	width: 100%;
 }
-#home-buttons img {
-	position: absolute;
-	z-index: 1;
-}
+
 .top_homelink {
 	position: absolute;
 	height: @row1-height;
@@ -88,7 +92,7 @@
 		height:100%;
 	}
 	p{
-	font-size:@tile-font-size * .8!important;
+		font-size:@tile-font-size * .8!important;
 	}
 }
 #middleyoutube{
@@ -125,27 +129,28 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-}
-.simply-scroll-list li {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.simply-scroll-list li img {
-	border: none;
-	display: block;
+	li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		img {
+			border: none;
+			display: block;
+		}
+	}
 }
 .simply-scroll {
-	/* Customisable base class for style override DIV */
-	width: 960px;
-	height: @row3-height;
-}
-.simply-scroll .simply-scroll-clip {
-	width: 960px;
-	height: @row3-height;
-}
-.simply-scroll .simply-scroll-list li {
-	float: left;
-	width: 960px;
-	height: @row3-height;
+    width: 960px;
+    height: @row3-height;
+    .simply-scroll-clip {
+        width: 960px;
+        height: @row3-height;
+    }
+    .simply-scroll-list {
+        li {
+            float: left;
+            width: 960px;
+            height: @row3-height;
+        }
+    }
 }
