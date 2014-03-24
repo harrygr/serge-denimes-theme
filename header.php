@@ -81,20 +81,22 @@ if ( $sa_settings['sa_custom_css'] ){ //<!-- Here is the custom css -->
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- /Facebook Like script -->
 
+
 	<div id='wrapper'>
 		<header id='header'>
 			<!-- Social Media Links -->
 
 			<div class="social socmed" id="socmed1">
-				<a title="Serge DeNimes Facebook Page" href="http://www.facebook.com/pages/Serge-DeNimes/197436926939967"><i class="icon-facebook"></i></a>
-				<a title="Serge DeNimes Twitter" href="http://www.twitter.com/sergedenimes"><i class="icon-twitter"></i></a>
-				<a title="So Serge Tumblr" href="http://soserge.com/"><i class="icon-tumblr"></i></a>
-				<a title="Serge DeNimes YouTube Channel" href="http://www.youtube.com/sdnimes"><i class="icon-youtube"></i></a>
-				<a title="Serge Songs of the Week on Spotify" href="http://open.spotify.com/user/1163287097/playlist/1ztfJ8Z9278J7AVPtRSMg5"><i class="icon-spotify"></i></a>
-				<a title="Serge DeNimes Pinterest" href="http://pinterest.com/sergedenimes/"><i class="icon-pinterest"></i></a>
+				<a title="Serge DeNimes Facebook Page" href="http://www.facebook.com/pages/Serge-DeNimes/197436926939967"><i class="icon-facebook fa fa-facebook"></i></a>
+				<a title="Serge DeNimes Twitter" href="http://www.twitter.com/sergedenimes"><i class="icon-twitter fa fa-twitter"></i></a>
+				<a title="So Serge Tumblr" href="http://soserge.com/"><i class="icon-tumblr fa fa-tumblr"></i></a>
+				<a title="Serge DeNimes YouTube Channel" href="http://www.youtube.com/sdnimes"><i class="icon-youtube fa fa-youtube"></i></a>
+	<!-- 			<a title="Serge Songs of the Week on Spotify" href="http://open.spotify.com/user/1163287097/playlist/1ztfJ8Z9278J7AVPtRSMg5"><i class="icon-spotify fa fa-spotify"></i></a> -->
+				<a title="Serge DeNimes Pinterest" href="http://pinterest.com/sergedenimes/"><i class="icon-pinterest fa fa-pinterest"></i></a>
 			</div>
 			<!-- /Social Media Links -->
 			<?php get_search_form(); ?> 
+			<?php include 'elements/header_cart.php'; ?>
 			<?php if ($sa_settings['sa_header_image']){ ?>
 			<a id="home_link" href="<?php bloginfo("url"); ?>"><img src="<?php echo $sa_settings['sa_header_image']; ?>" alt="<?php bloginfo('name'); ?>" height="175" width="565"/></a>
 			<h1 style="display:none;"><?php bloginfo('name'); ?></h1>

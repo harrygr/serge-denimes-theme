@@ -5,6 +5,22 @@ function pr($arr){
 	print_r($arr);
 	echo '</pre>';
 }
+// this should only ever fire on non-cached pages (so it SHOULD fire
+// whenever we add to cart / update cart / etc
+function update_cart_total_cookie()
+{
+    global $woocommerce;
+    $cart_count = $woocommerce->cart->cart_contents_count;
+    $cart_total = $woocommerce->cart->get_cart_total();
+    setcookie('woocommerce_cart_count', $cart_count, 0, '/');
+    setcookie('woocommerce_cart_total', $cart_total, 0, '/');
+}
+if(!is_admin()){
+add_action('init', 'update_cart_total_cookie');
+}
+
+
+
 
 //Append a file's last modified time (mtime) to the url as a get parameter to prevent caching when it's updated.
 //Feed it a file path string relative to the theme's root.
@@ -269,20 +285,8 @@ function serge_insert_socmed( ) {
 	echo "<br/>";
 }
 
-function wc_micro_cart(){
-	if (!isset($woocommerce)) { global $woocommerce;} ?>
-	<div id="micro-cart">
-		<?php if ($woocommerce->cart->cart_contents_count > 0){ ?>
 
-		<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="visit the shop">
-			<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count); ?>
-		</a>
-		<span class="mc-price"><?php echo $woocommerce->cart->get_cart_total(); ?></span>
-		<?php } else { ?>
-		<a href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>" title="visit the shop">Basket Empty</a>
-		<?php } ?>
-	</div>
-	<?php }
+
 
 
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
